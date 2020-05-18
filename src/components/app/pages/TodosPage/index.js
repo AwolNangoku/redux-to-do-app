@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 
 const TodosPage = ({todos, addToDo, deleteToDo}) => {
 	const [toDo, setTodo] = useState('');
-	console.log('111')
 	return (
 		<>
 			<h3>What would you like to note down as your to do tasks?</h3>
