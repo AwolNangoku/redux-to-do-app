@@ -4,7 +4,7 @@ import TodosPage from '../../components/app/pages/TodosPage/';
 import { addToDo, deleteToDo } from '../../services/state/todos/actions';
 
 const mapStateToProps = state => {
-	const { todos } = state.todos;
+	const todos = state.todos;
 	return {
 		todos
 	}

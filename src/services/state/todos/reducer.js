@@ -1,22 +1,16 @@
-import { handleActions } from 'redux-actions'
+import { createReducer } from '@reduxjs/toolkit'
+import * as actions from './actions';
 
-const initialState = {
-	todos: []
-}
+const initialState = [];
 
-const todos = handleActions(
+const todos = createReducer(initialState,
 {
-	LIST_TODOS: (state, action) => (state),
-	ADD_TO_DO: (state, action) => {
-		return {
-			todos: [...state.todos, action.payload.aTodo]
-		}
+	[actions.listTodos]: (state, action) => (state),
+	[actions.addToDo]: (state, action) => {
+		console.log('11111', action.payload)
+		return [...state, action.payload];
 	},
-	DELETE_TO_DO: (state, action) => {
-		return {
-			todos: state.todos.filter(todo => todo !== action.payload.aTodo)
-		}
-	}
+	[actions.deleteToDo]: (state, action) => (state.filter(todo => todo !== action.payload))
 },
 initialState
 )
