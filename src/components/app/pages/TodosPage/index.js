@@ -14,7 +14,7 @@ const TodosPage = ({todos, addToDo, deleteToDo}) => {
 				</div>
 				<div>
 					<button onClick={() => {
-						addToDo(toDo);
+						toDo && addToDo(toDo);
 						setTodo('')
 					}}> Add New task </button>
 				</div>
