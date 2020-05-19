@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
+import { TodoRow, TodoContent, TodoDelete } from './styled';
 
 const TodosPage = ({todos, addToDo, deleteToDo}) => {
+	let history = useHistory();
 	const [toDo, setTodo] = useState('');
 	return (
 		<>
@@ -20,7 +23,14 @@ const TodosPage = ({todos, addToDo, deleteToDo}) => {
 				</div>
 			</form>
 			<h2>List of to do taks has {todos.length} things</h2>
-			{todos.map((todo, i) => (<div key={i} onClick={() => deleteToDo(todo)}>{todo}</div>))}
+			{todos.map((todo, i) => (
+				<TodoRow>
+					<TodoContent onClick={()=> history.push(`/todo/${todo}`)}>
+						{todo}
+					</TodoContent>
+					<TodoDelete onClick={()=> deleteToDo(todo)}>x</TodoDelete>
+				</TodoRow>
+			))}
 		</>
 	)
 }
