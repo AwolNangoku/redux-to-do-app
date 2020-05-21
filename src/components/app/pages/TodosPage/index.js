@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import { nanoid } from '@reduxjs/toolkit'
+import { useHistory } from 'react-router-dom'
 import { TodoRow, TodoContent, TodoDelete } from './styled';
 
 const TodosPage = ({todos, addToDo, deleteToDo}) => {
@@ -17,18 +18,18 @@ const TodosPage = ({todos, addToDo, deleteToDo}) => {
 				</div>
 				<div>
 					<button onClick={() => {
-						toDo && addToDo(toDo);
+						toDo && addToDo({ text: toDo, id: nanoid()});
 						setTodo('')
 					}}> Add New task </button>
 				</div>
 			</form>
 			<h2>List of to do taks has {todos.length} things</h2>
 			{todos.map((todo, i) => (
-				<TodoRow>
-					<TodoContent onClick={()=> history.push(`/todo/${todo}`)}>
-						{todo}
+				<TodoRow key={todo.id}>
+					<TodoContent key={todo.id} onClick={()=> history.push(`/todo/${todo.id}`)}>
+						{ todo.text }
 					</TodoContent>
-					<TodoDelete onClick={()=> deleteToDo(todo)}>x</TodoDelete>
+					<TodoDelete onClick={()=> deleteToDo(todo.id)}>x</TodoDelete>
 				</TodoRow>
 			))}
 		</>

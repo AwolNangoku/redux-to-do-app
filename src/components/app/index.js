@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ConnectedTodosPage from '../../containers/ConnectedTodosPage/'
-import TodoPage from '../../components/app/pages/TodoPage/';
+import ConnectedTodoPage from '../../containers/ConnectedTodoPage/';
 
 
 const App = () => (
@@ -10,8 +10,8 @@ const App = () => (
 			<Route exact path='/'>
 				<ConnectedTodosPage />
 			</Route>
-			<Route exact path='/todo/:todo'>
-				<TodoPage />
+			<Route exact path='/todo/:id'>
+				<ConnectedTodoPage />
 			</Route>
 		</Switch>
 	</Router>

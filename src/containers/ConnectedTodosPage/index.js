@@ -1,19 +1,14 @@
 import { connect } from 'react-redux'
+import { getTodos } from './selectors'
+import TodosPage from '../../components/app/pages/TodosPage/'
+import { addToDo, deleteToDo } from '../../services/state/todos/actions'
 
-import TodosPage from '../../components/app/pages/TodosPage/';
-import { addToDo, deleteToDo } from '../../services/state/todos/actions';
-
-const mapStateToProps = state => {
-	const todos = state.todos;
-	return {
-		todos
-	}
-}
+const mapStateToProps = state => ({todos: getTodos(state)})
 
 const mapDispatchToProps = dispatch => {
 	return {
 		addToDo: newTodo => dispatch(addToDo(newTodo)),
-		deleteToDo: todo => dispatch(deleteToDo(todo))
+		deleteToDo: todoId => dispatch(deleteToDo(todoId))
 	}
 }
 

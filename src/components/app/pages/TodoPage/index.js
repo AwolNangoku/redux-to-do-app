@@ -1,11 +1,12 @@
 import React from 'react'
 import {useParams} from 'react-router-dom';
 
-const TodoPage = () => {
-	let {todo} = useParams();
+const TodoPage = ({ todos }) => {
+	let {id} = useParams();
+	let todo = todos.filter(todo => todo.id === id)[0]
 	return (
 		<div>
-			Todo: {todo}
+			Todo: { todo.text }
 		</div>
 		)
 }
