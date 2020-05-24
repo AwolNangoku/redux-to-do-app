@@ -5,12 +5,10 @@ import { addToDo, deleteToDo } from '../../services/state/todos/actions'
 
 const mapStateToProps = state => ({todos: getTodos(state)})
 
-const mapDispatchToProps = dispatch => {
-	return {
-		addToDo: newTodo => dispatch(addToDo(newTodo)),
-		deleteToDo: todoId => dispatch(deleteToDo(todoId))
-	}
-}
+const mapDispatchToProps = dispatch => ({
+	addToDo: newTodo => dispatch(addToDo(newTodo)),
+	deleteToDo: todoId => dispatch(deleteToDo(todoId))
+})
 
 const ConnectedTodosPage = connect(mapStateToProps, mapDispatchToProps)(TodosPage)
 

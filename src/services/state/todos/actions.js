@@ -6,5 +6,7 @@ const addToDo = createAction('ADD_TO_DO')
 
 const deleteToDo = createAction('DELETE_TO_DO')
 
+const saveTodo = createAction('SAVE_TO_DO')
 
-export { listTodos, addToDo, deleteToDo }
+
+export { listTodos, addToDo, deleteToDo, saveTodo }
