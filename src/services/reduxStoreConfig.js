@@ -2,7 +2,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
 import rootReducer from './state/';
-import { logger } from './middlewares/logger'
+import { logger } from './middlewares/loggers/logger'
 
 const persistConfig = {
 	key: 'root',
