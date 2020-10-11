@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 
 const TodoPage = ({ todos, saveTodo }) => {
