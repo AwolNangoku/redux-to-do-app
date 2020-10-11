@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import { nanoid } from '@reduxjs/toolkit'
-import { useHistory } from 'react-router-dom'
+import React, {useState} from 'react';
+import { nanoid } from '@reduxjs/toolkit';
+import { useHistory } from 'react-router-dom';
 import { TodoRow, TodoContent, TodoDelete } from './styled';
 
 const TodosPage = ({todos, addToDo, deleteToDo}) => {
